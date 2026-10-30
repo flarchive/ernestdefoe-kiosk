@@ -2,13 +2,13 @@
 
 > **Read-only archive of released versions of ernestdefoe/kiosk.** Not for installation: use [Packagist](https://packagist.org/packages/ernestdefoe/kiosk) or the [upstream repository](https://github.com/ernestdefoe/kiosk).
 
-**1** versions archived · Latest: [`1.0.0`](https://github.com/flarchive/ernestdefoe-kiosk/tree/archive/v1.0.0) · License: `MIT` · Flarum: `^2.0`
+**0** versions archived · Latest: [`1.0.1`](https://github.com/flarchive/ernestdefoe-kiosk/tree/archive/v1.0.1) · License: `MIT` · Flarum: `^2.0`
 
 ## Archived Versions
 
 | Version | Released | Flarum | Source |
 |---|---|---|---|
-| `1.0.0` | 2026-10-30 | `^2.0` | [Browse](https://github.com/flarchive/ernestdefoe-kiosk/tree/archive/v1.0.0) |
+| — | — | — | — |
 
 Catalog entry: [packages/ernestdefoe-kiosk.json](https://github.com/flarchive/archive-index/blob/main/packages/ernestdefoe-kiosk.json)
 
