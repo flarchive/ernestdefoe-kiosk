@@ -1,0 +1,731 @@
+@import 'common.less';
+
+// Kiosk's admin — Flarum 2 CSS properties only, so it follows the admin theme.
+
+.KioskAdmin {
+  color: var(--text-color);
+  padding-bottom: 40px;
+
+  .KioskTabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 0 0 20px;
+    border-bottom: 1px solid var(--control-bg);
+
+    .Button.active {
+      color: var(--primary-color);
+      box-shadow: inset 0 -2px 0 var(--primary-color);
+    }
+  }
+}
+
+.KioskBadge {
+  display: inline-block;
+  min-width: 18px;
+  margin-left: 6px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--alert-error-bg, #d83e3e);
+  color: #fff;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.KioskSetup {
+  margin-bottom: 25px;
+  padding: 20px;
+  border-radius: var(--border-radius, 8px);
+  background: var(--control-bg);
+
+  h3 {
+    margin-top: 0;
+    color: var(--text-color);
+  }
+}
+
+.KioskSteps {
+  list-style: none;
+  margin: 15px 0 0;
+  padding: 0;
+}
+
+.KioskStep {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--body-bg);
+
+  .KioskStep-icon {
+    flex: 0 0 auto;
+    margin-top: 3px;
+    font-size: 18px;
+    color: var(--muted-color);
+  }
+  &--done .KioskStep-icon {
+    color: var(--success-color, #2e7d32);
+  }
+  .KioskStep-body {
+    min-width: 0;
+    flex: 1;
+  }
+  h4 {
+    margin: 0 0 6px;
+    color: var(--text-color);
+  }
+  &--done h4 {
+    color: var(--muted-color);
+  }
+  p {
+    color: var(--muted-color);
+  }
+}
+
+.KioskTemplates {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(~"min(200px, 100%)", 1fr));
+}
+
+button.KioskTemplate {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius, 8px);
+  background: var(--body-bg);
+  color: var(--text-color);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+
+  .icon {
+    font-size: 20px;
+    color: var(--primary-color);
+  }
+  span {
+    font-size: 12px;
+    color: var(--muted-color);
+  }
+  &:hover,
+  &:focus-visible {
+    border-color: var(--primary-color);
+  }
+}
+
+.KioskCode,
+.KioskFacts code {
+  display: inline-block;
+  max-width: 100%;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--body-bg);
+  color: var(--text-color);
+  overflow-wrap: anywhere;
+}
+
+.KioskStats {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(~"min(150px, 100%)", 1fr));
+  margin-bottom: 20px;
+}
+
+.KioskStat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  padding: 16px;
+  border-radius: var(--border-radius, 8px);
+  background: var(--control-bg);
+
+  .icon {
+    color: var(--primary-color);
+  }
+  strong {
+    font-size: 22px;
+    color: var(--text-color);
+    overflow-wrap: anywhere;
+  }
+  span {
+    color: var(--muted-color);
+    font-size: 12px;
+  }
+}
+
+.KioskWarning,
+.KioskSuccess {
+  padding: 10px 14px;
+  border-radius: var(--border-radius, 6px);
+  background: var(--control-bg);
+  color: var(--text-color);
+
+  .KioskWarning-detail {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted-color);
+  }
+}
+.KioskWarning .icon {
+  color: var(--alert-error-bg, #d83e3e);
+}
+.KioskSuccess .icon {
+  color: var(--success-color, #2e7d32);
+}
+
+.KioskToolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 15px;
+
+  .KioskToolbar-search {
+    flex: 1 1 220px;
+    width: auto;
+  }
+  .Select {
+    width: auto;
+  }
+}
+
+.KioskProductList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.KioskProductRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: var(--border-radius, 8px);
+  background: var(--control-bg);
+  color: var(--text-color);
+
+  &.is-dragging {
+    opacity: 0.6;
+  }
+  &--off {
+    opacity: 0.65;
+  }
+  .KioskProductRow-icon {
+    color: var(--primary-color);
+  }
+  .KioskProductRow-main {
+    flex: 1 1 200px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .KioskProductRow-meta {
+    color: var(--muted-color);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+  .KioskProductRow-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+}
+
+.KioskSortHandle {
+  cursor: grab;
+  touch-action: none;
+  padding: 4px;
+  color: var(--muted-color);
+}
+
+.KioskTag {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--body-bg);
+  color: var(--muted-color);
+  font-size: 11px;
+  font-weight: bold;
+
+  &--live {
+    background: var(--primary-color);
+    color: var(--body-bg);
+  }
+}
+
+.KioskStatus {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  background: var(--body-bg);
+  color: var(--muted-color);
+  margin-right: 4px;
+
+  &--active {
+    background: var(--primary-color);
+    color: var(--body-bg);
+  }
+  &--refunded {
+    background: var(--alert-error-bg, #d83e3e);
+    color: #fff;
+  }
+}
+
+.KioskTableWrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.KioskTable {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text-color);
+
+  th,
+  td {
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--control-bg);
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    color: var(--muted-color);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .KioskTable-sub {
+    display: block;
+    color: var(--muted-color);
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
+  .KioskTable-actions {
+    white-space: nowrap;
+    text-align: right;
+  }
+}
+
+.KioskProvider {
+  max-width: 640px;
+
+  .KioskProvider-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+
+    > .icon {
+      font-size: 24px;
+      color: #003087;
+    }
+    h3 {
+      margin: 0;
+      color: var(--text-color);
+    }
+  }
+  .KioskModeSwitch {
+    display: flex;
+    gap: 6px;
+    max-width: 360px;
+    margin-bottom: 12px;
+  }
+  .helpText {
+    margin-bottom: 16px;
+  }
+}
+
+.KioskFacts {
+  margin-top: 20px;
+
+  dt {
+    margin-top: 10px;
+    color: var(--muted-color);
+    font-size: 12px;
+  }
+  dd {
+    margin: 4px 0 0;
+    small {
+      display: block;
+      color: var(--muted-color);
+    }
+  }
+}
+
+// Product editor
+.KioskProductModal {
+  .KioskFormRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    .KioskFormRow-grow {
+      flex: 1 1 240px;
+      min-width: 0;
+    }
+  }
+  .KioskIconField {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .KioskColor {
+    width: 60px;
+    padding: 2px;
+  }
+}
+
+.KioskFieldset {
+  margin: 20px 0;
+  padding: 0;
+  border: 0;
+
+  .Form-group {
+    margin-top: 14px;
+  }
+  .Checkbox--switch {
+    margin-bottom: 6px;
+  }
+
+  legend {
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 6px;
+  }
+}
+
+.KioskUnlockList {
+  list-style: none;
+  margin: 8px 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    border-radius: var(--border-radius, 6px);
+    background: var(--control-bg);
+    color: var(--text-color);
+    min-width: 0;
+  }
+  .KioskUnlockList-type {
+    color: var(--muted-color);
+    font-size: 12px;
+  }
+  strong {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+.KioskPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .Select {
+    width: auto;
+  }
+  .KioskPicker-search {
+    position: relative;
+    flex: 1 1 220px;
+    min-width: 0;
+  }
+  .KioskPicker-results {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 240px;
+    overflow-y: auto;
+    z-index: 10;
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 8px 15px;
+      border: 0;
+      background: none;
+      color: var(--text-color);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+
+      &:hover,
+      &:focus-visible {
+        background: var(--control-bg);
+      }
+    }
+  }
+}
+
+.KioskPriceRow {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--control-bg);
+
+  .KioskPriceRow-main,
+  .KioskPriceRow-terms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .KioskPriceRow-terms {
+    margin-top: 6px;
+    color: var(--muted-color);
+  }
+  .KioskPriceRow-gap {
+    margin-left: 12px;
+  }
+  .Select {
+    width: auto;
+  }
+  .KioskPriceRow-preview {
+    flex: 1 1 140px;
+    color: var(--text-color);
+    font-weight: bold;
+    text-align: right;
+  }
+}
+
+.KioskNarrow {
+  width: 110px;
+}
+.KioskTiny {
+  width: 70px;
+}
+
+.KioskNote {
+  margin-top: 8px;
+  color: var(--muted-color);
+  font-size: 12px;
+}
+
+.KioskChecks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.KioskSellThis {
+  legend {
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  .KioskSellThis-list {
+    margin: 4px 0 10px;
+    padding-left: 18px;
+    color: var(--text-color);
+  }
+}
+
+.KioskSettings {
+  max-width: 600px;
+}
+
+@media (max-width: 767px) {
+  .KioskPriceRow .KioskPriceRow-preview {
+    flex-basis: 100%;
+    text-align: left;
+  }
+}
+
+.KioskProviders {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(~"min(420px, 100%)", 1fr));
+  align-items: start;
+
+  .KioskProvider {
+    max-width: none;
+    min-width: 0;
+    padding: 20px;
+    border-radius: var(--border-radius, 8px);
+    background: var(--control-bg);
+  }
+  .KioskFacts code,
+  .FormControl {
+    background: var(--body-bg);
+  }
+}
+.KioskProvider .KioskProvider-head > .fa-stripe {
+  color: #635bff;
+}
+
+.KioskCouponForm {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(~"min(160px, 100%)", 1fr));
+  gap: 12px;
+  align-items: end;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    color: var(--text-color);
+  }
+  label > span:first-child {
+    font-weight: 600;
+  }
+}
+.KioskCouponForm-pair {
+  display: flex;
+  gap: 6px;
+
+  .FormControl {
+    min-width: 0;
+  }
+  input {
+    flex: 1;
+  }
+}
+.KioskPriceRow-hint {
+  color: var(--muted-color);
+  font-size: 0.9em;
+}
+
+// ─── Ads ──────────────────────────────────────────────────────────────────
+
+.KioskAds-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  .helpText {
+    flex: 1 1 320px;
+    min-width: 0;
+    margin: 0;
+  }
+}
+
+.KioskAds-name {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+.KioskAds-thumb {
+  flex: none;
+  width: 48px;
+  max-height: 32px;
+  object-fit: contain;
+  color: var(--muted-color);
+  text-align: center;
+}
+
+.KioskAds-off td {
+  color: var(--muted-color);
+}
+
+.KioskAds-settings {
+  margin-top: 30px;
+
+  h3 {
+    color: var(--heading-color, var(--text-color));
+  }
+}
+
+.KioskAdModal-preview {
+  display: block;
+  max-width: 100%;
+  max-height: 160px;
+  margin-bottom: 8px;
+  border-radius: var(--border-radius);
+}
+
+.KioskAdModal-file {
+  display: block;
+  max-width: 100%;
+  color: var(--control-color);
+}
+
+.KioskAdModal-code {
+  font-family: var(--font-family-monospace, monospace);
+  font-size: 12px;
+}
+
+.KioskAdModal-dates {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(~"min(160px, 100%)", 1fr));
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+}
+
+// Sellers tab: Stripe Connect for members and the listings waiting for review.
+.KioskSellers {
+  > section {
+    margin-top: 24px;
+  }
+  h3 {
+    color: var(--text-color);
+  }
+  .KioskSellers-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .KioskSellers-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .KioskSellers-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    border-radius: var(--border-radius, 6px);
+    background: var(--control-bg);
+    color: var(--text-color);
+
+    &--pending {
+      box-shadow: inset 3px 0 0 var(--primary-color);
+    }
+  }
+  .KioskSellers-main {
+    flex: 1 1 260px;
+    min-width: 0;
+
+    a {
+      color: var(--link-color, var(--primary-color));
+    }
+  }
+  .KioskSellers-description {
+    margin: 6px 0 0;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+  }
+  .KioskSellers-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: flex-start;
+  }
+}
