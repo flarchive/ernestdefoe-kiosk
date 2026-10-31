@@ -1,0 +1,645 @@
+// Kiosk — built on Flarum's own CSS properties, so it follows the forum's
+// colours, dark mode and any theme. Every text colour is set explicitly:
+// themes recolour links and headings, and a card must stay readable.
+
+@import 'common.less';
+
+.KioskPageHead {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  .KioskPageHead-title {
+    margin: 0;
+    font-size: 20px;
+    color: var(--heading-color, var(--text-color));
+  }
+}
+
+.KioskGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(~"min(280px, 100%)", 1fr));
+}
+
+.KioskCard {
+  --kiosk-accent-fallback: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 18px;
+  border-radius: var(--border-radius, 8px);
+  background: var(--control-bg);
+  color: var(--text-color);
+  border-top: 4px solid var(--kiosk-accent, var(--kiosk-accent-fallback));
+
+  &--highlight {
+    box-shadow: 0 0 0 2px var(--kiosk-accent, var(--primary-color));
+  }
+
+  .KioskCard-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .KioskCard-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--kiosk-accent, var(--primary-color));
+    color: var(--body-bg);
+    font-size: 16px;
+  }
+  h3.KioskCard-name {
+    margin: 0;
+    min-width: 0;
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--text-color);
+    overflow-wrap: anywhere;
+  }
+  .KioskCard-description {
+    margin: 0 0 10px;
+    color: var(--muted-color);
+  }
+  .KioskCard-benefits {
+    list-style: none;
+    margin: 0 0 12px;
+    padding: 0;
+    li {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 4px;
+      color: var(--text-color);
+    }
+    .icon {
+      flex: 0 0 auto;
+      margin-top: 3px;
+      color: var(--kiosk-accent, var(--primary-color));
+    }
+  }
+  .KioskCard-foot {
+    margin-top: auto;
+  }
+  .KioskCard-price {
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text-color);
+    small {
+      display: block;
+      font-size: 12px;
+      font-weight: normal;
+      color: var(--muted-color);
+    }
+  }
+  .KioskCard-prices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .KioskCard-button {
+    width: 100%;
+  }
+  .KioskCard-refusal {
+    margin: 0;
+    color: var(--muted-color);
+    font-style: italic;
+  }
+}
+
+.KioskCard-unlocks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+
+  .KioskCard-unlocksLabel {
+    font-size: 12px;
+    color: var(--muted-color);
+  }
+}
+
+// A link inside a themed page: beat the theme's link colour on purpose.
+a.KioskChip,
+span.KioskChip,
+.KioskCard a.KioskChip:hover {
+  display: inline-block;
+  max-width: 100%;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--body-bg);
+  color: var(--text-color);
+  font-size: 12px;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.KioskEmpty {
+  color: var(--muted-color);
+  text-align: center;
+  padding: 40px 0;
+}
+
+.KioskLocked {
+  margin: 20px 0;
+  h2.KioskLocked-title {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 18px;
+    color: var(--text-color);
+  }
+}
+
+.KioskReturn {
+  max-width: 520px;
+  margin: 30px auto;
+  text-align: center;
+  color: var(--text-color);
+
+  h2 {
+    color: var(--text-color);
+  }
+  p {
+    color: var(--muted-color);
+  }
+  .KioskReturn-icon {
+    font-size: 48px;
+    color: var(--success-color, #2e7d32);
+    margin-bottom: 10px;
+  }
+  .KioskReturn-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 15px 0;
+  }
+  .Button {
+    margin: 4px;
+  }
+}
+
+.KioskPurchases {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.KioskPurchase {
+  padding: 15px 18px;
+  margin-bottom: 12px;
+  border-radius: var(--border-radius, 8px);
+  background: var(--control-bg);
+  color: var(--text-color);
+  opacity: 0.8;
+
+  &--live {
+    opacity: 1;
+  }
+  .KioskPurchase-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  h3.KioskPurchase-name {
+    margin: 0;
+    min-width: 0;
+    font-size: 16px;
+    color: var(--text-color);
+    overflow-wrap: anywhere;
+  }
+  .KioskPurchase-terms {
+    margin: 4px 0 10px;
+    color: var(--muted-color);
+  }
+  .KioskPurchase-payments {
+    color: var(--muted-color);
+    summary {
+      cursor: pointer;
+    }
+    ul {
+      margin: 6px 0;
+      padding-left: 18px;
+    }
+  }
+  .KioskPurchase-number {
+    color: var(--muted-color);
+  }
+  .KioskPurchase-cancel {
+    padding-left: 0;
+    color: var(--muted-color);
+  }
+}
+
+.KioskStatus {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  background: var(--body-bg);
+  color: var(--muted-color);
+
+  &--live,
+  &--active {
+    background: var(--primary-color);
+    color: var(--body-bg);
+  }
+}
+
+.KioskCheckoutModal-price {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--text-color);
+}
+
+@media (max-width: 767px) {
+  .KioskCard {
+    padding: 15px;
+  }
+}
+
+.KioskLockedTags {
+  margin-top: 30px;
+
+  h3.KioskLockedTags-title {
+    font-size: 16px;
+    color: var(--text-color);
+    margin-bottom: 12px;
+  }
+  .KioskLockedTile .TagTile-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .KioskLockedTile-cta {
+    display: inline-block;
+    margin-top: 8px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+// A paid discussion's first post, seen from outside: the opening words fade
+// into the offer. The text itself is already only an excerpt (server-side).
+.KioskTeaserPost .Post-body {
+  max-height: 9em;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 40%, transparent);
+  mask-image: linear-gradient(to bottom, #000 40%, transparent);
+}
+.KioskTeaser {
+  margin-top: 10px;
+
+  .KioskLocked {
+    margin: 0;
+  }
+}
+.Badge--kioskLocked {
+  --badge-bg: var(--muted-color);
+  --badge-color: var(--body-bg);
+}
+
+.KioskCard-amount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--text-color);
+
+  .FormControl {
+    flex: 1;
+    min-width: 0;
+  }
+}
+.KioskBackThis {
+  .KioskBackThis-raised {
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  .KioskLocked {
+    margin-top: 10px;
+  }
+  .KioskGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Coupon, gift, seats and plan switching: one small field under a price.
+.KioskCard-extras {
+  margin-bottom: 10px;
+}
+.KioskCard-extraLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+.KioskCard .KioskCard-extraLink,
+.KioskPurchases .KioskCard-extraLink {
+  padding: 0;
+  font-size: 0.9em;
+  color: var(--muted-color);
+}
+.KioskCard-field {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+
+  .FormControl {
+    flex: 1;
+    min-width: 0;
+  }
+  .Button {
+    flex-shrink: 0;
+  }
+}
+.KioskCard-note {
+  margin: 6px 0 0;
+  font-size: 0.9em;
+  color: var(--text-color);
+
+  &--error {
+    color: var(--alert-error-color, #d83e3e);
+  }
+}
+.KioskPurchase-whose {
+  margin: 4px 0 0;
+  font-size: 0.9em;
+  color: var(--muted-color);
+}
+.KioskPurchase-seats {
+  margin-top: 12px;
+  color: var(--text-color);
+}
+.KioskPurchase-seatsHead {
+  margin: 0 0 4px;
+  font-weight: 600;
+}
+.KioskPurchase-seatList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-width: 0;
+
+    span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+.KioskPurchase-switch {
+  margin-top: 12px;
+}
+
+// Cards sit on --control-bg, which is also what inputs and plain buttons
+// use: give them the page's background so they show up in every theme.
+.KioskCard,
+.KioskPurchase {
+  .FormControl,
+  .Button:not(.Button--primary):not(.Button--link):not(.Button--icon) {
+    background: var(--body-bg);
+    color: var(--text-color);
+  }
+}
+
+// ─── Ads ──────────────────────────────────────────────────────────────────
+// A plain box in every spot: centered, never wider than its column, and
+// labelled. Colours come from the forum's properties so themes and dark
+// mode carry over; the link selectors are specific enough to beat a
+// theme's own link colours.
+
+.KioskAd {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  margin: 16px auto;
+  text-align: center;
+  color: var(--muted-color);
+  list-style: none;
+
+  .KioskAd-meta {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 4px;
+    font-size: 11px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .KioskAd-label {
+    color: var(--muted-color);
+  }
+
+  a.KioskAd-remove,
+  a.KioskAd-remove:hover,
+  a.KioskAd-remove:focus {
+    color: var(--muted-color);
+    text-decoration: underline;
+  }
+
+  .KioskAd-image,
+  .KioskAd-html {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+  }
+}
+
+.KioskAd--footer {
+  padding: 0 15px;
+}
+
+.KioskAd--sidebar,
+.KioskAd--discussion_sidebar {
+  margin: 20px 0;
+}
+
+// The discussion list's own items keep their look; the ad sits between them.
+.DiscussionList-discussions > .KioskAd--between_discussions {
+  padding: 8px 0;
+}
+
+.PostStream > .KioskAd--between_posts,
+.PostStream-afterFirstPost .KioskAd {
+  margin: 20px 0;
+}
+
+// On phones the sidebar folds into a menu: no ads there.
+@media @phone {
+  .KioskAd--sidebar,
+  .KioskAd--discussion_sidebar {
+    display: none;
+  }
+
+  .DiscussionList-discussions > .KioskAd--between_discussions {
+    padding: 8px 15px;
+  }
+}
+
+// Kiosk Sellers: the "Sold by" line on a member's listing, and the Selling page.
+.KioskCard-seller {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--muted-color);
+
+  a {
+    color: var(--text-color);
+    font-weight: 600;
+  }
+  .KioskCard-terms summary {
+    cursor: pointer;
+    color: var(--muted-color);
+  }
+  .KioskCard-terms p {
+    margin: 6px 0 0;
+    white-space: pre-line;
+    color: var(--text-color);
+  }
+}
+
+.KioskPageHead-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.KioskSelling-section {
+  margin-bottom: 30px;
+
+  h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    color: var(--heading-color, var(--text-color));
+  }
+  > .helpText {
+    color: var(--muted-color);
+  }
+  > textarea {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+
+.KioskSelling-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.KioskSelling-accounts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(~"min(260px, 100%)", 1fr));
+  gap: 12px;
+
+  .KioskPurchase {
+    margin: 0;
+    min-width: 0;
+  }
+  .KioskPurchase-name {
+    margin: 0;
+    font-size: 15px;
+    color: var(--text-color);
+  }
+  .helpText {
+    font-size: 12px;
+    color: var(--muted-color);
+  }
+}
+
+.KioskSelling-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 8px 0;
+
+  .FormControl {
+    width: 100%;
+    min-width: 0;
+    background: var(--body-bg);
+    color: var(--text-color);
+  }
+}
+
+.KioskSelling-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.KioskListingModal-items {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  max-height: 180px;
+  overflow-y: auto;
+
+  .Button {
+    color: var(--text-color);
+    text-align: left;
+    white-space: normal;
+  }
+  small {
+    color: var(--muted-color);
+    margin-left: 4px;
+  }
+}
+
+.KioskListingModal-price {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 6px;
+
+  .FormControl {
+    flex: 1 1 100px;
+    min-width: 0;
+  }
+}
+
+.KioskSelling-switch {
+  padding-left: 0;
+  padding-right: 0;
+  color: var(--muted-color);
+  white-space: normal;
+  text-align: left;
+}
