@@ -1,0 +1,31 @@
+// Shared between forum and admin.
+
+button.KioskPrice {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--control-bg-shaded, var(--muted-more-color));
+  border-radius: var(--border-radius, 6px);
+  background: var(--body-bg);
+  color: var(--text-color);
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+
+  small {
+    display: block;
+    font-weight: normal;
+    font-size: 11px;
+    color: var(--muted-color);
+  }
+  &--selected,
+  &[aria-checked='true'] {
+    border-color: var(--kiosk-accent, var(--primary-color));
+    box-shadow: inset 0 0 0 1px var(--kiosk-accent, var(--primary-color));
+  }
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+  }
+}
+
