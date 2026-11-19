@@ -1,0 +1,14 @@
+/vendor
+/js/node_modules
+/node_modules
+.DS_Store
+composer.lock
+
+# 🚨 js/dist is COMMITTED on purpose. This installs over VCS onto a forum
+# with no Node — an ignored dist is an extension that installs cleanly and
+# renders nothing.
+.phpunit.result.cache
+/tests/integration/tmp
+/js/coverage-ts
+/tmp
+/.claude
